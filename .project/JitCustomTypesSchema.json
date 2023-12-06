@@ -1,0 +1,295 @@
+{
+  "exportedBy": null,
+  "bundleHash": null,
+  "version": "1.0.0.0",
+  "jitAssemblyCompilerCommands": [
+    {
+      "providerName": "TypedDataTable",
+      "typedDataTableDto": {
+        "id": 1,
+        "idRef": "ReadRangeConnections`1_3",
+        "hash": "ReadRangeConnections`1_3|DataTable|91aGlx5bYmKiGHK4hkmSRGbAajFNcfyrAywPZVwfQ4",
+        "dataType": "System.Data.DataTable, System.Data.Common",
+        "columns": [
+          {
+            "columnName": "Última actualiz.",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "ID",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Nombre",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Apellido",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Fuente de contacto",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "E-Mail",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "E-Mail Alternativo",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Teléfono",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Localidad, provincia",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Nombre CV a procesar",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "CV original",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "CV procesado",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Status",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Perfil y seniority",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Comentarios",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Skills",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Experiencia previa",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Idiomas",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Pretensión salarial / tipo",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Recruiter interviniente",
+            "dataType": "System.String, System.Private.CoreLib"
+          }
+        ]
+      },
+      "entityAssemblyKey": {
+        "name": "Studio.Generated.TypedDataTable1",
+        "hash": "ReadRangeConnections`1_3|DataTable|YcYw6OaV7sY4ibyGjY29i7uCGnMC1AAICLotGKSbg",
+        "assemblyName": "Studio.Generated.TypedDataTable1"
+      }
+    },
+    {
+      "providerName": "TypedDataTable",
+      "typedDataTableDto": {
+        "id": 2,
+        "idRef": "ReadRangeConnections`1_4",
+        "hash": "ReadRangeConnections`1_4|DataTable|91aGlx5bYmKiGHK4hkmSRGbAajFNcfyrAywPZVwfQ4",
+        "dataType": "System.Data.DataTable, System.Data.Common",
+        "columns": [
+          {
+            "columnName": "Última actualiz.",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "ID",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Nombre",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Apellido",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Fuente de contacto",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "E-Mail",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "E-Mail Alternativo",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Teléfono",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Localidad, provincia",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Nombre CV a procesar",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "CV original",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "CV procesado",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Status",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Perfil y seniority",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Comentarios",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Skills",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Experiencia previa",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Idiomas",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Pretensión salarial / tipo",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Recruiter interviniente",
+            "dataType": "System.String, System.Private.CoreLib"
+          }
+        ]
+      },
+      "entityAssemblyKey": {
+        "name": "Studio.Generated.TypedDataTable2",
+        "hash": "ReadRangeConnections`1_4|DataTable|YcYw6OaV7sY4ibyGjY29i7uCGnMC1AAICLotGKSbg",
+        "assemblyName": "Studio.Generated.TypedDataTable2"
+      }
+    },
+    {
+      "providerName": "TypedDataTable",
+      "typedDataTableDto": {
+        "id": 3,
+        "idRef": "ReadRangeConnections`1_5",
+        "hash": "ReadRangeConnections`1_5|DataTable|91aGlx5bYmKiGHK4hkmSRGbAajFNcfyrAywPZVwfQ4",
+        "dataType": "System.Data.DataTable, System.Data.Common",
+        "columns": [
+          {
+            "columnName": "Última actualiz.",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "ID",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Nombre",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Apellido",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Fuente de contacto",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "E-Mail",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "E-Mail Alternativo",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Teléfono",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Localidad, provincia",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Nombre CV a procesar",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "CV original",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "CV procesado",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Status",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Perfil y seniority",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Comentarios",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Skills",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Experiencia previa",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Idiomas",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Pretensión salarial / tipo",
+            "dataType": "System.String, System.Private.CoreLib"
+          },
+          {
+            "columnName": "Recruiter interviniente",
+            "dataType": "System.String, System.Private.CoreLib"
+          }
+        ]
+      },
+      "entityAssemblyKey": {
+        "name": "Studio.Generated.TypedDataTable3",
+        "hash": "ReadRangeConnections`1_5|DataTable|YcYw6OaV7sY4ibyGjY29i7uCGnMC1AAICLotGKSbg",
+        "assemblyName": "Studio.Generated.TypedDataTable3"
+      }
+    }
+  ]
+}

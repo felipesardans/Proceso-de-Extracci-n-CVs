@@ -1,0 +1,769 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ExtractInformationIA" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=Studio.Generated.TypedDataTable3" xmlns:sd1="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugad="clr-namespace:UiPath.GSuite.Activities.Drive;assembly=UiPath.GSuite.Activities" xmlns:ugade="clr-namespace:UiPath.GSuite.Activities.Drive.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugase="clr-namespace:UiPath.GSuite.Activities.Sheets.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugdm="clr-namespace:UiPath.GSuite.Drive.Models;assembly=UiPath.GSuite" xmlns:ugsm="clr-namespace:UiPath.GSuite.Sheets.Models;assembly=UiPath.GSuite" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uisape="clr-namespace:UiPath.IntelligentOCR.StudioWeb.Activities.PDF.ExtractPDFText;assembly=UiPath.IntelligentOCR.StudioWeb.Activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_ListFiles" Type="InArgument(ugdm:GDriveRemoteItem[])" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1265,8219</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ExtractInformationIA_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.IntelligentOCR.StudioWeb.Activities.PDF.ExtractPDFText</x:String>
+      <x:String>UiPath.IntelligentOCR.StudioWeb.Activities.PDF</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.Word</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.Word.Activities</x:String>
+      <x:String>UiPath.GSuite.Activities.Drive.Enums</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.GSuite.Drive.Models</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.GSuite.Activities.Drive</x:String>
+      <x:String>Google.Apis.Drive.v3.Data</x:String>
+      <x:String>Google.Apis.Requests</x:String>
+      <x:String>UiPath.GSuite.Activities.Drive.Filters</x:String>
+      <x:String>UiPath.GSuite.Activities.Sheets.Enums</x:String>
+      <x:String>UiPath.GSuite.Sheets.Enums</x:String>
+      <x:String>UiPath.GSuite.Sheets.Models</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.StudioWeb.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentUnderstanding.ML.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>Google.Apis.Drive.v3</AssemblyReference>
+      <AssemblyReference>Google.Apis</AssemblyReference>
+      <AssemblyReference>Google.Apis.Core</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable1</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable2</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable2</AssemblyReference>
+      <AssemblyReference>Studio.Generated.TypedDataTable3</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ExtractInformationIA" sap:VirtualizedContainerService.HintSize="1275,8154" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:List(x:String)" Name="ListFilesPDF" />
+      <Variable x:TypeArguments="x:String" Name="PathReplace" />
+      <Variable x:TypeArguments="x:String" Name="TextFile" />
+      <Variable x:TypeArguments="x:String" Name="in_DataCV" />
+      <Variable x:TypeArguments="x:String" Name="ExtractDataIA" />
+      <Variable x:TypeArguments="x:String" Name="InfoCV" />
+      <Variable x:TypeArguments="sd1:DataTable" Name="DataTableValues" />
+      <Variable x:TypeArguments="sd:DataTable3" Name="CandidatosDT" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: ChatGPT" sap:VirtualizedContainerService.HintSize="1213,8043" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="1dc59c76-f66b-439d-82b4-64bbb47f637e" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="1179,7826" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="10" DisplayName="Click 'Get started'" sap:VirtualizedContainerService.HintSize="1117,157" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1dc59c76-f66b-439d-82b4-64bbb47f637e" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://chat.openai.com/auth/login?iss=https%3A%2F%2Fauth0.openai.com%2F" CvElementArea="878, 354, 219, 51" CvTextArea="964, 372, 46, 17" CvTextArgument="Log in" CvType="Button" DesignTimeRectangle="876, 354, 223, 53" DesignTimeScaleFactor="1" FriendlyName="'chrome.exe ChatGPT'" Guid="d7ae7c66-6de3-43b0-841a-105aa142b1b9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAN8AAAA1CAYAAADBJj7IAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJwSURBVHhe7d2xbdtQFIXhDOYilYus4dLruMgELtyq8g4uPIIQGF7AA9C8kJ7wfHSfSdHkIYX8B/gQRKYYIMiPR6nJr44xtsqIj7GVNhjf41PX3d133e8/XXdzC2BItBLNRDvfrRnf2/vhBtnNAYwTDUVL2ZrxER4wj2gpWxpfHJfZTQBMkz2CpvFx6gHzyk6/ND6+XAHmFU3p0viyNwP4GR3xASY64gNMdMQHmOiIDzDRER9goiM+wERHfICJjvgAEx3xASY64gNMdMQHmOiIz+jl4/D3+/I3//lSHl4Pf+5H/2v2c3joiM+I+P5vOuIzWis+bIOO+IzGxrf7d7iuLDux9sefle2P79k/n1+rJ1/9+/o+nIzL0hGf0Zj4yjVn6+Mq12h49S6JL1v2fsxDR3xGQ/HVUezK6/21pcd43+ma/sWH6r0lyIviq+5RTltOv+XoiM9oKL4SgAZUh9G6pgR1SXxfQuvfd/YaZqUjPqM54stOrTDl5CM+Lx3xGQ1+5jsGEGs9dsZrc33mIz4vHfEZNb9M6Vf+0Tev6U+/+l4a4NRvO0/XEd/idMRnNCa+UB4zy86C6E/AnZyerUfWQHzboCO+K3MKsw/59JkveTTF9uiI7wo1P/PJoym2RUd8V0ofYXlc3D4d8QEmOuIDTHTEB5joiA8w0REfYKIjPsBER3yAiY74ABMd8QEmOuIDTHRpfPGft2dvBjBNNKVL47u7z28AYJpoSpfG9/iU3wDANNGULo0vxukHzCM79WLN+N7eCRD4qWgoWsrWjK8sjsu4AV/CAONEK9FM9qhZbzA+xtgyIz7GVhrxMbbKuu4TPBrTjPu/cmoAAAAASUVORK5CYII=" InformativeScreenshot="0b7e774d9c99eeed1afb461602b16293.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ChatGPT' /&gt;" SearchSteps="Image" TargetType="ImageBased" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="2">
+                      <uix:Target CvTextArgument="Get started" CvType="Text" DesignTimeRectangle="1019, 304, 164, 32" ElementType="Text" FriendlyName="'Get started'" FullSelectorArgument="&lt;webctrl tag='H2' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='H2' type='' class='text-center text-[20px] leading-[1.2] md:text-[32px] md:leading-8' aaname='Get started' check:innerText='Get started' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image, CV" />
+                      <uix:Target CvTextArgument="OpenAl" CvType="Text" DesignTimeRectangle="1060, 630, 80, 22" ElementType="Icon" FriendlyName="'PATH'" FullSelectorArgument="&lt;webctrl tag='path' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='path' type='' class='' aaname='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFQAAAAaCAYAAAApOXvdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM0SURBVGhD7ZS7jgIxEATv//+NiIyIiIiIjGhPJV2h3jnbC9Kig2NbGq2f7Zmy4WvatKo2oCvrLqCn02k6HA7Tbreb9vv9dDwep8vl8jO7KbUIVJB8AQtM2oClf71eN7ihIVBhVmD0AcqcQZ8A8CerCxRoLZi8SiHSZp6gLdS655P0CygvjJ+10BSQfJXAa4m9Ql2SfxV4nc/nl7wEciQ3oqc6PwNKUQATCj/5Op6FYwT8/JnTZu0IkH41OC+9/lr5sFqPyFoJNQNqUYivbcDZRhjRFzyRBzLXe8UJkzUGHozxfRWZZy+vIVCgMeELqUB9iRTPOvooxwTLPuerBFdfsJeU3ohxc+I7evmotyZ90JKXPMhplDPjhLoBrRDoEwhzTfNF8VWYC9Z1VZlkSyTMPN7ZNxe969mI883RyDUtQATtBK08j33WVR/JECjGWahFIExp58EWQGTiCaGKhJhrwVYmiL9ehOfoQeSLcYw15ktfCAIl8EqfVq7OIcGxLzUEimluoO9BJFNvBzFGAewjBC4I9qUsoo6n8GENHglUbyQc8yMH+pljhZBAlf5ZN2r5cRZjeYlDoB7oBhYL2ZdRxRj7XGuBqPaRifLtyQTx7BVcYXlR9DPSy/pG0JV7E169ROR+Qt2AIhZjlgVjZIIYKNqsZx5VgLWPBFrHlQBN0H5rfa5jnjawWtEDihhLoK7rBWvz0TmuZkAtmDARxJc5YdsmHgGaCeTtqwSDBJoFI4t23Lz5pvKMe4Ey75g1GIzlOYtAMWOTCdpWHuYY/R5Q1jmXShj4UDRj7GWcUAIlOIs+e3qFMY4Xfc8xJ/v4pNyn6BN4VNULXgRqsojF9DUw8tZ7QIXTSip9a1T/BFrDs1TPU797gPbWKHK3NnwXgVpAFsUmDvA1oGqM6Au9erSEBwXo7cWkzAfvzCNzSbGGuZovcq6ek2OcR3+Ue67Rk1AzoCwQCu0qDSiSNXmwICl+lNAjwkfPd9EMKAKawLwJIkHmjSB/KmuBVP8CKAIqRVBMBjCrnlm0v4jW38GrqglUUVDrhfofJfR3ekHP1hBoFYCBCUDAtn7+n66HgG5a1gZ0VU3TN0TE9hG6CnHRAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1117,52" sap2010:WorkflowViewState.IdRef="CommentOut_27">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Actividades ignoradas" sap:VirtualizedContainerService.HintSize="450,268" sap2010:WorkflowViewState.IdRef="Sequence_67">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Maximizar'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_10" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1dc59c76-f66b-439d-82b4-64bbb47f637e" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="924, 1, 46, 29" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Maximizar'" FullSelectorArgument="&lt;ctrl name='Uso de memoria de ChatGPT: 53,5 MB - Google Chrome' role='pane' /&gt;&lt;ctrl name='Maximizar' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Uso de memoria de ChatGPT: 53,5 MB - Google Chrome' role='pane' /&gt;&lt;ctrl name='Maximizar' role='push button' automationid='' check:text='Maximizar' /&gt;" Guid="e6f96a54-75d6-4438-ad56-269b05db55b0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADIAAAAgCAYAAABQISshAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABoSURBVFhH7c8xCsAwDARBfTYhrw6k8TeUNoUcDLLxIbaY5uCKteO8vAK7n+YVEKKGEDWEqCFEzfQQMxsSfTOWhET7FyE/COkhJImQHkKSloSMiL4Z00N2IUQNIWoIUUOIGkLUFAlp/gIU9xrTowUd8wAAAABJRU5ErkJggg==" InformativeScreenshot="6addbacb815ff9d33518f20a4cf6dcad.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='ChatGPT - Google Chrome' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target DesignTimeRectangle="878, 1, 46, 29" ElementType="Button" FriendlyName="'Minimizar'" FullSelectorArgument="&lt;ctrl name='Uso de memoria de ChatGPT: 53,5 MB - Google Chrome' role='pane' /&gt;&lt;ctrl name='Minimizar' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Uso de memoria de ChatGPT: 53,5 MB - Google Chrome' role='pane' /&gt;&lt;ctrl name='Minimizar' role='push button' automationid='' check:text='Minimizar' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADIAAAAgCAYAAABQISshAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABUSURBVFhH7dGxCQAhFATRbdbjqhYusY1/DSgIJoNM8MINhk173rpB+jfqBobQGEJjCI0hNIbQGEJjyEqSLbPtCR+hMYTGEBpDaAyhMYTGEBpDWEb9kBtflZTLKU0AAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Or'" sap:VirtualizedContainerService.HintSize="1117,157" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1dc59c76-f66b-439d-82b4-64bbb47f637e" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://auth0.openai.com/u/login/identifier?state=hKFo2SBaUjNIQTB2OGlCYWEtajNTMUNVVXBTTXBjWGNpX242QqFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHFZWGJjVEJyeDlVQ2lkNUJUQ1dTZm9LQmpvaWtJcW13o2NpZNkgVGRKSWNiZTE2V29USHROOTVueXl3aDVFNHlPbzZJdEc" CvElementArea="342, 633, 322, 55" CvTextArea="359, 649, 191, 23" CvTextArgument="G Continue with Google" CvType="InputBox" DesignTimeRectangle="343, 633, 322, 55" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'G Continue with Google'" Guid="952c1c24-aa1a-4518-9014-929aebcbb640" InformativeScreenshot="5ddb3b73fbc677872a8a62bfcae2136a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='auth0.openai.com/u/login/identifier?state=hKFo2SBaUjNIQTB2OGlCYWEtajNTMUNVVXBTTXBjWGNpX242QqFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHFZWGJjVEJyeDlVQ2lkNUJUQ1dTZm9LQmpvaWtJcW13o2NpZNkgVGRKSWNiZTE2V29USHROOTVueXl3aDVFNHlPbzZJdEc' /&gt;" SearchSteps="CV" TargetType="ComputerVisionBased" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArgument="OR" CvType="Text" DesignTimeRectangle="344, 575, 320, 36" FriendlyName="'Or'" FullSelectorArgument="&lt;webctrl aaname='                            ' idx='3' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='                            ' type='' tag='DIV' class='c02a197b4 cd6f9d31e' check:innerText='OR' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAUQAAAAoCAYAAACGq4NTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFPSURBVHhe7doxagJBGIbhXChVOo8kWHkNG/EcFuINUqVT8BSid5i4u5+iqwhKdtI8D/zgOm5h8zKz+lEAaAkiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgiQAgi9ezXZfw1Kp/nme+y0NiV2fVaO9Oy3GcZKhBE6tgseoE7luXkOopNEBdlm6tWe0/vPRiQIFJBF7/ZJpcXTQTPkXwQxJt1GJ4gMrz2qPx4p7edj8p4dTy9skPk/12C+P2zNebpvO1JEA+raY7NTRD//hnio+9hTH/O7BAZ3ss7xC6O90dsGJYgUsEbzxCb4/JkXQ65hBoEkTpe/pW5W+92j1CHIFJP73+It7HrB/Ekn3d0phZBBAhBBAhBBAhBBGiV8gtZDqO9hsVo4AAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Usar otra cuenta'" sap:VirtualizedContainerService.HintSize="1117,157" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1dc59c76-f66b-439d-82b4-64bbb47f637e" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?login_hint&amp;prompt=login&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Fauth0.openai.com%2Flogin%2Fcallback&amp;scope=email%20profile&amp;state=XanEHJ6gOJa6IIKHN2REzrn4uURJtDKd&amp;client_id=799222349882-ne3i0s9jdm5s0p7ll2d7tlsi1vc1halt.apps.googleusercontent.com&amp;service=lso&amp;o2v=1&amp;theme=glif&amp;flowName=GeneralOAuthFlow" CvTextArgument="Usar otra cuenta" CvType="Text" DesignTimeRectangle="459, 519, 448, 48" DesignTimeScaleFactor="1" FriendlyName="'Usar otra cuenta'" FullSelectorArgument="&lt;webctrl aria-role='link' idx='4' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aria-role='link' type='' tag='DIV' class='lCoei YZVTmd SmR8' aaname='' check:innerText='Usar otra cuenta' /&gt;" Guid="eba7bc9e-3e16-4d5b-b1c3-f9fcc02dc794" ImageBase64="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" InformativeScreenshot="804e4df3bb1df7591381c81a62cf43a8.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Acceso: Cuentas de Google' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArgument="Usar otra cuenta" CvType="Text" DesignTimeRectangle="539, 533, 108, 20" ElementType="Text" FriendlyName="'Usar otra cuenta'" FullSelectorArgument="&lt;webctrl class='BHzsHc' parentid='view_container' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='BHzsHc' parentid='view_container' tag='DIV' type='' aaname='Usar otra cuenta' check:innerText='Usar otra cuenta' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHAAAAAYCAYAAAAiR3l8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQrSURBVGhD7ZbhZyNbGMbvH9YP1VKbLw1LuIRLqySWWJfEZePSVeWWyBJZIksIpYQQhmErsWurEarzYSNUQzVczadQhjKUZ59z5pxkJp006b1cO9c8DDPnzPue9z2/c95zfkGkUCsCGHJFAEOuCGDIFQEMuSKAIdcU4KSZwdp6CX31rbWoPdLPoZABHMN4s4m1D5b6/p/oosQ5zsAYq+8XKAL4M+i/A2jjtnmIdDzGtk28ep1FvTeRPfN9G/EdFJtDOKq3/4ET/6aG01oG21vivQVt6dVdu4D8a78P+5Ed4xZybBPt+ilfzNrLjQ6Kv7l2st0ewjjYccdaj2F75xDGlS2GCBBjNwvIeWM3R6ovaNFYKPO/XFPP+HPzouyPGvjKeF6xf20rjtzHHibMS86LaNOPnpcV438ZwEEFifU4isYQk/sR+p8II1VDn36dUQv5eArVtugb47q5jyQHfv/ZTUQHurFXgNHu4fSzxbT9uuNYG7RJH7XQPec/tSx9bCLJyXMexuifmygn6Sd7jEv23wrXU7AJ5GsmLtu0vXHoK4vtvRK6wzHs8QDGnwlO3Dt8DVg1tycpOe7bghi3A+PI/XZjXw5Qxr2VRNn05p5A1RLLV9mLPH7nAvb4L35zyKmHy3qW/bQ3+G6NuehXj/9lAEcNpDlw7pOFO1vvrTk92LDvbTiPDHxvlrgLcB/dRZvgkZPC1Zau65XvyjZFcrq8BEymArhbG6oGvxzGYt8z1r8beMv/5O706uEMxSfjckedM0eZ4hKAKm7/+A66B7Q5OOObsk/WcCsqidQA9TgXc0n5fKaELot/KcC7RsrX7lyZqL5LYVeUi5inTNoW6qqEuU+Mq3KWuFtCg8umlC6F8xPsa18McN7OuaggHdOx8NliPEv9B2kJQGU/y9vzyHyD7OfaAgCuGv8UoPPtkD/EUf+uGoTELhID/dFxyx2/++3BtPQ5gxp2CarKOPolwosX0NWEnCFOdmZBLgX4L3egPzELVfpKHJ255yflXB2zegSACtyBDq6/9Pw7UO4mpYmJPH1JgMo+b/ozm9yos/sfAVw9/ilACSsjdlUK5WaHZ4yJekrsKF3L6eSLgBzD7n7Dc1YQ+gC4rsS5SjJoDlizxfnI80se2KsCpJ49A+UfE5xm6Cexj2a7g+6ASykQoCpRmWNcj1mCRhZOsm51eAKQWnQG5lrujMrcpmdsA3/96vrSZ+AT+0KKuWv7FQBaJTfvEv2bLN0viH8GUIg3n9OCuiXSYdDNR9wSZ7e1DMpttXLVrUnfstIHFZTnz8AlAIUW3kKVnJsG3svxY8gb9LaohF61prdS6adSCD4DpeZvoZ68hLy5xVyQJwSgAT5vvwJAzsplQfuvyONq1fj9ACOFThHAkCsCGHJFAEOuCGDIFQEMuSKAIVcEMNQCfgChmCV0bt4p2wAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Correo electronico'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1117,218" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="1dc59c76-f66b-439d-82b4-64bbb47f637e" Text="rpacvs@gmail.com[k(Enter)]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://accounts.google.com/o/oauth2/auth/identifier?login_hint&amp;prompt=login&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Fauth0.openai.com%2Flogin%2Fcallback&amp;scope=email%20profile&amp;state=XanEHJ6gOJa6IIKHN2REzrn4uURJtDKd&amp;client_id=799222349882-ne3i0s9jdm5s0p7ll2d7tlsi1vc1halt.apps.googleusercontent.com&amp;service=lso&amp;o2v=1&amp;theme=glif&amp;flowName=GeneralOAuthFlow" CvType="InputBox" DesignTimeRectangle="509, 357, 364, 52" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT identifierId'" FullSelectorArgument="&lt;webctrl id='identifierId' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='identifierId' tag='INPUT' type='email' class='whsOnd zHQkBf' aaname='' /&gt;" Guid="90a71df5-435b-4cb0-ae61-60a5b1993f6f" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAXAAAAA4CAYAAADkZaOKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATTSURBVHhe7djNS1xnFMfx+TtcVegf4DK77Ny5Kl1kkV12WQUJgmQTITRSAh0oVZAguBiEUksIQhGki6RQyuBGLDQLqQHRq+PoTHwZUTk9576Mc+/MxOtMEE/9fuAh9+0897lPcn/z5BZEldeP5cFUIINj2zIwmm5drVZkYLIqQbybtfFbIMM/1+M91diX56O78r6h21Y7V4uOm8x+sJypXdmNztufP+7L5ZWfpDQRSOnfeDfWtV6V57aluKobaxUZau1rqyqPwuc5koXvMn0en0jjzDZqUhwNZCF56NS4rW5bpv+Jd1XjL73vzL7YIzfvG9JrJ5N967MiZdu0ccbXhy5OpXZ4qn8eyMvRHVlueaSNN4F8++ZTvBfLOT/p+/c7XyrQ7eQZep2H3GO/9M1P1bZ/rzTa/7lZRltWW2abgm10Cu6kdWUv9GcC3F7UR0tH8Z5pCb8rAtxq28ai9/p7KUjXZYIo0a3ebp0ESGB9Za8JQygT0imfC/AOdXY+c99I5wAPx5R6vlgqICOdrm0/1nl+ssf7my+VGl9v85B/7JcIcNpdbZbZlt0FS3M78GS+JpXDi/jVyKG+L+PJirqpLqXJHVnYilbgqRXiNVbgbbWJ7Aq1yyqta71qBkhbXwkLjl5X4Om6a6/Arb+uK/D0XHddgeeYn2w49jdfqm0F3sM85B47cHdZRltWW2ZbdheS1fe1wjt0KqulQEZe70tg4aZhY0Ew9GJPNuy0vdRPNew29eTFiXz4Vc+9Pohe0CsCXDb35OGzHVm0WjmTWrkixT91Nd/QsHsWSHHlJDwevNuV4eR+rbrVq2aANDQUdXzTa9bXuTQ+VqX4NvqMsPE2kOHZA6lZeb0u0y8CmV23M3p/eyb9gQplxm2ryKFXVdmI62Y1nF6WNYBVrgCPx1T6aDX6fL/vyL0p+6xwGtaPzOmY7K9pV38MdR5Km1bUIu/86P0XX+nYVs6j3T7nK/s/hJ7mIffYgbvNsjpZhRdsw1pPLo6kPB/I/adRHyM/VGS1HoeCvuS1tYo8Ho/OPZypyofos83VAW61K5e197/XfpPaTQ2vicvj5b3kfq2617cGSGO92uzr3sSuLG/FfelzvZ8L5J4eHxgL5Pm75FPQuaz+ouGkx4trupsdt/5Q2flwPqxuqd5cUeYKcNVY35PRTs99diiLM9GYhsY1SFdaP0+1yDU/etc/9MdBr3m8bP30OV/ZTzw9zYPKOXbgrrN3xFp/AQ4AuHEEOAA4RYADgFMEOAA4RYADgFMEOAA4RYADgFMEOAA4RYADgFMEOAA4RYADgFMEOAA4RYADgFNfLMC/Gvw63gIA3AQCHACcIsABwCkCHACcIsABwCkCHACcIsABwCkCHACcIsABwCkCHACcIsABwCkCHACcIsABwCkCHACcIsABwCkCHACcIsABwCkCHACcIsABwKkvFuAAgJtFgAOAUwQ4ADhFgAOAUwQ4ADhFgAOAUwQ4ADhFgAOAUwQ4ADhFgAOAUwQ4ADhFgAOAUwQ4ADhFgAOAUwQ4ADjVDPDBsWijcngRnwIA3FaW1ZbZlt2FB1NBuPNkvkaIA8AtZhltWW2ZbdldKK8fh0luB2g0Go12+5tltmV3wVLdNizNCXIajUa7vc0y2rLaMltE5D8qDTrURXKkRwAAAABJRU5ErkJggg==" InformativeScreenshot="944bbf24f02bb51e863cadbd375723db.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Acceso: Cuentas de Google' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArgument="Correo electronico o telefono" CvType="Text" DesignTimeRectangle="520, 349, 156, 12" ElementType="Text" FriendlyName="'Correo electronico'" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DelayBefore="3" DisplayName="Type Into 'Mostrar contraseña'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1117,218" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="1dc59c76-f66b-439d-82b4-64bbb47f637e" Text="rparrhh12345" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://accounts.google.com/signin/v2/challenge/pwd?login_hint&amp;prompt=login&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Fauth0.openai.com%2Flogin%2Fcallback&amp;scope=email%20profile&amp;state=XanEHJ6gOJa6IIKHN2REzrn4uURJtDKd&amp;client_id=799222349882-ne3i0s9jdm5s0p7ll2d7tlsi1vc1halt.apps.googleusercontent.com&amp;service=lso&amp;o2v=1&amp;theme=glif&amp;flowName=GeneralOAuthFlow&amp;cid=1&amp;navigationDirection=forward&amp;TL=AIBe4_IVfSI7rGCYAu3NCh6u0Xe_RQGamDQu8i4lVkOP4pUllCK5ZWE8dKnNUsyY" CvType="InputBox" DesignTimeRectangle="509, 398, 364, 52" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='password' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='password' class='whsOnd zHQkBf' aaname='' /&gt;" Guid="203e8100-00a8-4ab0-bf4b-b228d936debe" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAXAAAAA4CAYAAADkZaOKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASoSURBVHhe7dhPSxx3GMDxfR3e8g726C03b3kBOXjz5iksQZAQakBU2kIEQUGC4EG8aCkSSAXpIR5KWXqRUJqAdAui445/drPqiC5Pn2fmt5tx3RUtTbsPfD/wg9md/zPw3dkpiCrvnsvT+UgejR3IQOnm6K0ms6VI1iObPpP1mda0+TIv2oxkYLkWvlfRsYyUYinrZHn5QGZ3sq+zdW7vf2TzTOddS+3Ticy+jmRQvxtePJFK09ZJ5ONmVYbHc+vk99WyE8vAzLG0Du/mfu3Y858zt467LX/eQXv7va/DrfVsnfz2j05lIZxfdi65Zet1ebscyRO9P4OvqrK1fx2uY+68w0jPo2Pb+XNJdo9lYvJAiu11snvRzXc/NW5sm8Fg/L/DGm2ttmabgk10C3dr9JYP0h3hspjMneg3Qc+A6zamIln5M3zs5epctpcOZHRLw753JMMvY9k+vUpn9Yxul4BP/6YRTHUPeLqO/lAk4aM0L6XWuNSJ28eZ/FoNy/7TgF/K9hs9p3efJUl/mDqWbbuSmu5r6Hs9l+apTJeqst0+wJyeAW/IymQks+Xs5ufvRTcEnMHoz2HNtnYXrOb2xbPVmsSNtB73dM+AJxqa55EsfbrQD1dSeRfp01+3gItUNiIZmjuWivXYQr0Wy1ZVN1GuSnHmSCqJRrd58SXgf8QyNBnLx3T5M9la1JPrFvAPsRSndLvhY+VH3c/SaRbnvWMZfd4l4OG4V/6yaF9J9POhDM5nP0QWxKJGND1OfTpe0h+A6XKI+10B1+2t76czOiJ7IVtzBzLxi10j+7cRa1hvXr/sOHSeXos04CH6w6t1qdltSz7L+vJRdi16BrwuCy/0XuymF0yi97qtOwIOoL9Yo63V1mxrd6H19P2weJt7Blwlv2uQbD8aytJKVUZexGK97Ay4NM+kvBrJY13Olh1dq4cn4ER21rJXCHas+Vco9r29diiOH8rKD4cykMatQ1Mj+41tM9uvnNdk4VW2rcffxrIw3yXgKtk9klJ4PWPL7YQHV/sRsf2mxzkWycRm6zjvug7X6Tr26mL2g37siKzsn8iEHaOdn4Z4YSosp+z6lV5m89qvUMx5XdYXw2sXO4739rpJ9Qx4x73YiGVcj++t/kgC8MFabS2wdhdswsbXo096ew1J7KGveZk+gQ++CU+/AIAHa3X76wfcnlY3DmU4PD0/eZ17kgUAPNh/F3AAwL+KgAOAUwQcAJwi4ADgFAEHAKcIOAA4RcABwCkCDgBOEXAAcIqAA4BTBBwAnCLgAOAUAQcApwg4ADhFwAHAKQIOAE4RcABwioADgFMEHACcIuAA4BQBBwCnCDgAOEXAAcApAg4AThFwAHCKgAOAUwQcAJwi4ADgFAEHAKcIOAA4RcABwCkCDgBOEXAAcIqAA4BTBBwAnCLgAOAUAQcApwg4ADhFwAHAKQIOAE4RcABwioADgFMEHACcIuAA4BQBBwCnCDgAONUO+KOxbCJuNMMsAEC/slZbs63dhafzUfrh2WqNiANAH7NGW6ut2dbuQnn3PC25fcFgMBiM/h/WbGt3wapuE1ZzQs5gMBj9O6zR1mprtojI36k3YWYfXbBIAAAAAElFTkSuQmCC" InformativeScreenshot="dcacf00b953f4f292b3e1db6fadf975a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Acceso: Cuentas de Google' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArgument="Mostrar contrasena" CvType="Text" DesignTimeRectangle="547, 462, 122, 20" ElementType="Text" FriendlyName="'Mostrar contraseña'" FullSelectorArgument="&lt;webctrl id='selectionc0' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl id='selectionc0' tag='DIV' type='' class='d3GVvd jGAaxb' aaname='Mostrar contraseña' check:innerText='Mostrar contraseña' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Siguiente'" sap:VirtualizedContainerService.HintSize="1117,157" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1dc59c76-f66b-439d-82b4-64bbb47f637e" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://accounts.google.com/signin/v2/challenge/pwd?login_hint&amp;prompt=login&amp;response_type=code&amp;redirect_uri=https%3A%2F%2Fauth0.openai.com%2Flogin%2Fcallback&amp;scope=email%20profile&amp;state=XanEHJ6gOJa6IIKHN2REzrn4uURJtDKd&amp;client_id=799222349882-ne3i0s9jdm5s0p7ll2d7tlsi1vc1halt.apps.googleusercontent.com&amp;service=lso&amp;o2v=1&amp;theme=glif&amp;flowName=GeneralOAuthFlow&amp;cid=1&amp;navigationDirection=forward&amp;TL=AIBe4_IVfSI7rGCYAu3NCh6u0Xe_RQGamDQu8i4lVkOP4pUllCK5ZWE8dKnNUsyY" CvElementArea="763, 528, 113, 40" CvTextArea="787, 540, 65, 16" CvTextArgument="Siguiente" CvType="Button" DesignTimeRectangle="765, 524, 110, 48" DesignTimeScaleFactor="1" FriendlyName="'DIV'" FullSelectorArgument="&lt;webctrl class='VfPpkd-RLmnJb' parentid='passwordNext' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='VfPpkd-RLmnJb' parentid='passwordNext' tag='DIV' type='' aaname='' /&gt;" Guid="a91d9623-cca4-4ee0-bc09-a955ceb5be0c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHIAAAA0CAYAAABW3GwMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARsSURBVHhe7ZvJaxRBFMb9Ozx68B/w6sGzeBERPAjiRRARxByMG4q4i7gg0SAuuMQF44ZGjYqicY3BXYlb3M1iktlnMtPTz/qqfZ2aoY0xOu1U533w0V3V1dXd9ev3qiahx5AoEhKQEZGAjIgEZEQkICMiARkRCciISEBGRCUgH3/K0+x9/TSutovG1nSKq9BgA0ZgZcoHiQMC0B6DlQnTBwnKQSeIq9dgxvJBSjTaZzBj+SCDGoqr3ywBablZAtJyswSk5WYJSMvNEpCWmyUgLTdLQFpuVqggV55NUGe8SK5L5BSJ3nY7NP9wTB+bsr2XPvQ61J8u0tyDXt3fel9LmgrqOs3Pc4HHo2BWaCABB5DSAy5dfZmj6+0DlCu49KXfoek7+zTIjh6Hvif/Lci849KFp/8G5PyGGCVzLt18NRB4/H+YFRrILc0pPajHWzN+3YYLSaq7lqIJq3pK2larBaTy4sYEpdQgILViP6hNe2eBvsWKOkJR3nwpRT0qQpGKkSJfqeMZFdE8kOXtsUUZ9Sjzy9Nwz3t5Jm387mcCCPfT2Jal8Uu8vzPjvO5EkZ59KejUj+u+U1kC6R99mEK/6B/nDTVlVNqsUOfIPTfTlM27+oFjmSKdeJAtiUYTzNrzSd0WEYBUDCMtQyMBCVg31Hl5h+jKixwtOhGnltcou3TkJ2icB2EKaHqSoyef8xrM3Xd5WnA0rlM0XoLXXQU6ej9Ds/f2637iGe8F3XQxqa/Zmyr6Uwb6raRZoYKEERX7b6XpU5+jgWI7c7f3LzQTDAYP4JafGoze7Vc9MCMBCRCJrEtt7/N+BE5c36PnZRj7OA8Rv+K0d83JW3vpo1qAfY05NHVHX2Bqxb55DrzreloDx5brKmVWqCBn1PeVRCDSGt74g3cGI4LBlEOCywfyT0DyfpCGuqZZFwQSx38lTumVNCs0kPgJgIGsN97SbZcHBxplc9BaO4YXkZhDZ+3xInreoZhO2ahH2QTJczTSKveHyFzflKRpdR448/rcxqwLAonMgWvi2lw350CMlqn75sivpFmhgVx4LK4fGCnn9psBuvgsR3GV6kxY5qCVz5HmIoUH8pLqA+n5TXeBzj3OaqhQEEgMKga9qNpj0XTmYVZvUUbf5ddHubwOsHDPmAMxh64+l6SlJxP6Hvk+YezjWfHM3E+lzAo1tdaoB8OKjleEWCCsUYPBx8sH0ly1Yh7CgCOqGCQi6dFHb0ECAwz+qBAEEmXMz4hI9AVhiwUMp/vfgUT5tHoB0Cfu6cBtr1+sWnnOh3EPtY2VhwizQl/sDNcYXKwCkaa4bp2KUkQloslsO5rNqlqQiEZAQypDGg47ZdliVtWChAGzS/1A55SF9IU0FtR2tJpV1SDFvzdLQFpuloC03CwBablZAtJyswSk5WYJSMvN8kHKRzz2OfAjHvmszj4HflYnH7raZbAK/NAVwgFQFqDVa7ABIxMiVAJSZK8EZEQkICMiARkRCciISEBGRAIyIhKQkRDRDxbZaJoPyRvJAAAAAElFTkSuQmCC" InformativeScreenshot="26089dec4414f2b81860d047ab1e3b61.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Acceso: Cuentas de Google' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvElementArea="763, 528, 113, 40" CvTextArea="787, 540, 65, 16" CvTextArgument="Siguiente" CvType="Button" DesignTimeRectangle="789, 538, 62, 20" ElementType="Text" FriendlyName="'Siguiente'" FullSelectorArgument="&lt;webctrl parentid='passwordNext' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='passwordNext' tag='SPAN' type='' class='VfPpkd-vQzf8d' aaname='Siguiente' check:innerText='Siguiente' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEIAAAAYCAYAAABOQSt5AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOFSURBVFhH7VZbT9RAFPZ3+AP8A7764LPxxRgTH0yMLybGkBh58B6N8YIaoxKDEoMaUETDKhrkpkQiiBckKqKGi6AourDsbne7l+5u2+N80053WgviQgyYTvKlnduZc775zmlXrCwPU4AwBUTYCIiwERBhIyDCRkCEDRcRRx4kKZwwyDSJdIPo87ROZTcVPre+MkpfozrF0wbtqLPGFoprPWkqsHM6Pmi+8/8SDhEIDkGmcyZ1ftKoayhHWsGkybhOmy7FOBHjEZ1m1MUlIq+b1Pp+cYgoq1dI1UzqHs75zs8Fh4hzHSnu1J2+jDN5qlWlqicpWn004owtZSwKEftCSUoxI0gNvMuLBIbCBfqpGFwh6J9tT1GEKQSpBIkPs/kMU5RwxLseT/Qxjr4gv/6lRf7a0zOOEtHgT6g/S6v2Tzn2ppMGDU4WeOri3DGmUqQvbMgNdmEf++ZKeQFXjajpTlM2b/INSsagxtdZlxrkwE48VPla3ABSCUBaoZVCBIJ9yvbldaLHHzXa05ignhH0TbplE4V9aEjhlgGNBr7neWAvxvK0qyHBUwwkjkwVqOFVhrZdjXM7iYx1wWfaVH5mNGU4KQ+7gIsIALdy/VmavsV0TgieW67E+ZwcGA5H4IfuFdVT2WkFVgoRCCSZNan/S95RwJqKCK9LAN6xD4o73GSdue58lCZYAf+h6LThYsw3NfAu7wEud6U5YXiKMRcRm6tjLgVAlmC87nnxRkRg3iABryN/Q4R492tznSmP+RGB+dmaSEnAIQKfMDhSLbF04VHRUfTlQ/vG56cI1JCtNZaidt5QeMphHH2ZCFGjkBbCHpRR0aLSxiorcPl8sUYe8yMCysWZOFuMba9V6CDzWygPcIjYfTvBN0AyvaM5ahvUKMGkKgcrH+qtEXKRE460MxtIr9HpAjW/y3JS0PyIgFNw2mDrUXTvv8nyJ/qw7T0ffe8YgoXPqAGoIceaVTpwN8l9FH4CeEesiFnYcaVGOZtARRUVGQXmODMm5r2OyF8N5CEcxq0KInCTbyesggYgMPyU+RGBPuoTFAFbaHiiAIp0/RMR6DcxAmETPtX2Wnbx1RA1D4APe0NFEoDfiuV8AedQhSEzMXaSqQSqwG3Ka5cDSiYCakDQkCLSaDbJLReUTAQAMqbYD46QHOQHGfqtXepYEBH/EwIibARE2AiIsBEQwRGmX89H6zB44KTJAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1117,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Actividades ignoradas" sap:VirtualizedContainerService.HintSize="450,268" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'ChatGPTNew chat'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1dc59c76-f66b-439d-82b4-64bbb47f637e" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://chat.openai.com/" CvTextArgument="New chat" CvType="Text" DesignTimeRectangle="20, 147, 236, 40" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'ChatGPTNew chat'" FullSelectorArgument="&lt;webctrl aaname='ChatGPTNew chat' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='ChatGPTNew chat' tag='A' type='' class='group flex h-10 items-center gap-2 rounded-lg px-2 font-medium hover:bg-token-surface-primary' check:innerText='ChatGPT&amp;#xD;&amp;#xA;New chat' /&gt;" Guid="2e95340a-a526-4bd8-b586-079364cc67e1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPAAAAAsCAYAAABbqTXGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAWxSURBVHhe7Zy9ThxJFEYJkPwWiPfwBiQ8A7I2ITWI1NIGiFdAjLQpvIGxcE4GkgNLsDECEROwL0Btn56+M9XVt7tr+C/2u9LRdN+qrhpsztya/mGpiiCEKBY3KYQoAzcphCgDNymEKAM3KYQoAzcphCgDNymEKAM3+SwsLy/XeG1CiGfBTS4Mom5sbISjo6NwcXER7u/vw8PDQw3b5Gijj6QW4tlwk9l8+vQp7O7uhpubm5Ab9OUYjvXGFEJk4yazWF9fD5eXl42WiwfHMoY3thAiCzc5yvb2dr08fmowBmN5cwghRnGTgyDcc4ckFuJRuMleWPKOVd7r6+uwt7cX1tbWwubmZr0/Foyp5bT4P7KyshI+f/7DbcvATbpw0mnsOy/Srq6u1uKaxOyzfXp62vTyg7F1Ykt8BJDy27e/Znz58menD9L+/v1PuLv7t+bHj5+dPhm4SRfOHA/F4eFhLWssKtUXiTmeNnvtq8rMEc8pRGkgokkZg9TWB3ktj+CTyd/19iMqsZvswLXboUtFVFj6ITFhy2hycfW1fCq6BXPoOrEoFSotIiIkwhpxn1heE9aOezGBuQHDC4Sk3aorgZhsU3mt0vIaC2sSe8FcNq8QJUE1RcRUWsOTN86l/TNwkx24i8oLJERU5DQhkROIuOIyjp3UMvG9Ksxc8dw+k3BW/9C/wn7StnV8W/9jnB2086/C15NwVc19dbzjt4+wf+7/TKIMhgQek9dyC+ImO3ArZBosl2kjUoHZ55V2BCeQFoHpZ23k0mAum7cfE7jifNJqk8DiregT+IXkBTfZgfuZ00BChCRSgU1SBEXg+HKSnexiXE9g5krn79IIfH4Svl+1ZZXA4q3wBH5BecFNtuCkknftF0GtuqYC28ksC/oBbQTi0j/tRzCX9z7amMBV9T34Fe6uTsJW0+YJPBXDuA3fv1b5RrZ5BY/GjPejsedEK4C4z0zgk6i9ma851t6fYbK33+PjPwTE2+EJbP+fLyAvuMkWfQKbhLZt134h/W6LvORsCU3E0sexsMDVPr/89gufCjwVYy5RXOXi7ZnQyX5HpFT8eD8dY2mnXiHMBOfDpmqffbjU+/57m80niiEV2M4u23XgPnm978yZuMkO3hKaQMxYQlseW6UlTHRerd3yjJ3GYkvouFpOf/FbAqeyQSxmJFRcGef77eoJnmRbVcXdP5iE/Xhspz995rk57Q8bCVwqfQJzWcnaIK285EzyBXGTHbyTWIRV1FhaxGTbctaeCkwwdhoLncSKxKyFq/ZdgR2mktk40+/SV8eTacVs9r3l86BkIwLPPiR6KrIELptU4LjiGqm89CXPsXE+EzfZoe8ykgkci8rSOK3EVOpUYNo4Po2FLiPFlbVert6Gs/OuwO1l8E7YiqpqXA3nlXe63z4u7t+WrK7AbA8KnCynQQJ/KFKBeaWyGpaPeRWB+27kQELkJKzy0t/EJRCaXCyw9Uu/KxN5N3J4AldEFbdPChPUJJsL2/SZjdFdPtdY+2zu5r1w/KDA6XtphK76S+CPQSpwDq8icN+tlEhpVTcN2uw7sglt4vYdk38rZY/AFVMJ5lLEuSmJmH1COsvnOSZtg/UdETg9bn62ummffXhUOD+beN/YkhkZETOHJ9wHDW7Spe9hBkQ0SdkGE9XEtUBob9lsoYcZROn0PcwwBE8leWNl4CZdhh4npNoiplVc+seiWjW25bYXepxQfBT4vksVzuGRZ58NN9lLzgP9RLxURlq2h+RlTD3QL8TCuMlB9Cd1hHg3uMlREC6nEo8FY0heIR6Nm8yCJe/Yn9gZCo7VslmIJ+Ems+GkE2eOh/5aRxr05RidsBLiybjJheHaLTdgcBcVt0JyPzPLY2CbHG30ybvOK4TIwE0KIcrATQohysBNCiHKwE0KIcrATQohysBNCiHKwE0KIcrATQoh3j1L4T94INEQ5vWfQAAAAABJRU5ErkJggg==" InformativeScreenshot="683df6919e619311fca4ec08f5cd4089.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ChatGPT' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CvTextArgument="New chat" CvType="Text" DesignTimeRectangle="64, 157, 156, 20" ElementType="Text" FriendlyName="'New chat'" FullSelectorArgument="&lt;webctrl aaname='New chat' parentid='__next' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='New chat' parentid='__next' tag='DIV' type='' class='grow overflow-hidden text-ellipsis whitespace-nowrap text-sm text-token-text-primary' check:innerText='New chat' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAKAAAAAYCAYAAAB9VvY1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHiSURBVGhD7ZddqsIwEEbdrgX3UtqFKHQPFtxDX3zuiyuYmzSZZJJOFS50rPAJByaTn0ZyOtGT+xAAX0RNAmCFmgTACjUJgBVqEgAr1CQAVqhJAKxQkwBYwUFP9/lF8/ygthxAze3p8i+6d2XehPNAk3v2dLvo/R9oR/07gcPAAQvoGHs5AAKCPeEgCjgOdJ1K2SAg2BEOWEBX/boHzdNATezTBAwHyzzpenb5KEuuoGJN2RZrZ0QFlmOSgIPoj8+Lc3l/DMta7vH/EoNd4aCUxR8eH1gtYDjYLIGsMjJOQlbtlQi1uLJdr3G6LBU6CepfFtefXo6lre8tPQ8cCQ60ahUOrhCwlsUjxRJCyMqU22X18miSNK7itV1PrVxbGe/H5FymfFkg4IHhoBYwCuPaqoAKQRJeJ/yWnG59qFixrV2/byX5IGCSfKMiQsDDw8FawHDdPek+rgUsr9ELNaKqyWqUK19ol/Pk+FKSpQL6+K2A1XXsgYC/BgeagA5R8bYOlQVjSbJwcUxaY339LnB/enbci5//VsB6L1FINx4C/gwcbAjoCIeYD1XmApVYW0Ip12+GpYvw2A8C1vPyv+XYn+R3KN8NfB01CYAVahIAK9QkAFaoSQCsUJMAWKEmATDgRH9EC516ErM5LwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
+            <ui:SetToClipboard DisplayName="Set To Clipboard" sap:VirtualizedContainerService.HintSize="1117,60" sap2010:WorkflowViewState.IdRef="SetToClipboard_2" Text="Necesito que saques la siguiente informacion de todos los cvs siguientes:  Nombre y Apellido (juntos), E-mail, E-mail alternativo, telefono, localidad/provincia, perfil señority, skills, experiencia previa, idiomas. (No me des ninguna introduccion, solamente directamente dame la informacion)" />
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayBefore="10" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="1117,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_3" ScopeIdentifier="1dc59c76-f66b-439d-82b4-64bbb47f637e" Shortcuts="[d(hk)][d(ctrl)]v[u(ctrl)][u(hk)][d(hk)][k(Enter)][u(hk)]" Version="V3" />
+            <ugad:GoogleDriveApplicationScope ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" ContinueOnError="{x:Null}" Timeout="{x:Null}" Account="rpacvs@gmail.com" Connector="uipath-google-drive" DisplayName="Use Google Drive" sap:VirtualizedContainerService.HintSize="1117,5904" sap2010:WorkflowViewState.IdRef="GoogleDriveApplicationScope_4" UseConnectionService="False" UserEmail="rpacvs@gmail.com">
+              <ugad:GoogleDriveApplicationScope.Body>
+                <ActivityAction x:TypeArguments="ugad:IGoogleDriveTarget">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ugad:IGoogleDriveTarget" Name="GoogleDrive" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="1083,5762" sap2010:WorkflowViewState.IdRef="Sequence_50">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uga:ReadRangeConnections x:TypeArguments="sd:DataTable3" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" RangeInformation="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="Candidatos VyA Aux" BrowserItemId="1BfVE5juExo7Ij1og8j-3NI0N4bCLNCNBvheqQCgS_kU" ConnectionId="97b7cb73-b783-48a6-a49f-cd1035c888a9" DisplayName="Read Range" HasHeaders="True" sap:VirtualizedContainerService.HintSize="1021,256" sap2010:WorkflowViewState.IdRef="ReadRangeConnections`1_5" ItemSelectionMode="Browse" Range="'Base VyA'" ReadAs="Values" Result="[CandidatosDT]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False">
+                      <uga:ReadRangeConnections.ColumnNames>
+                        <x:Array Type="x:String">
+                          <x:String>Última actualiz.</x:String>
+                          <x:String>ID</x:String>
+                          <x:String>Nombre</x:String>
+                          <x:String>Apellido</x:String>
+                          <x:String>Fuente de contacto</x:String>
+                          <x:String>E-Mail</x:String>
+                          <x:String>E-Mail Alternativo</x:String>
+                          <x:String>Teléfono</x:String>
+                          <x:String>Localidad, provincia</x:String>
+                          <x:String>Nombre CV a procesar</x:String>
+                          <x:String>CV original</x:String>
+                          <x:String>CV procesado</x:String>
+                          <x:String>Status</x:String>
+                          <x:String>Perfil y seniority</x:String>
+                          <x:String>Comentarios</x:String>
+                          <x:String>Skills</x:String>
+                          <x:String>Experiencia previa</x:String>
+                          <x:String>Idiomas</x:String>
+                          <x:String>Pretensión salarial / tipo</x:String>
+                          <x:String>Recruiter interviniente</x:String>
+                        </x:Array>
+                      </uga:ReadRangeConnections.ColumnNames>
+                      <uga:ReadRangeConnections.FileIdBackup>
+                        <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" StoredValue="Browse">
+                          <usau:BackupSlot.BackupValues>
+                            <scg:Dictionary x:TypeArguments="ugade:EDriveItemMode, scg:List(x:Object)" />
+                          </usau:BackupSlot.BackupValues>
+                        </usau:BackupSlot>
+                      </uga:ReadRangeConnections.FileIdBackup>
+                      <uga:ReadRangeConnections.RangeMetadata>
+                        <ugsm:RangeMetadataSlim ColumnStart="1" RangeType="Range" />
+                      </uga:ReadRangeConnections.RangeMetadata>
+                    </uga:ReadRangeConnections>
+                    <ui:ForEach x:TypeArguments="ugdm:GDriveRemoteItem" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1021,4951" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[in_ListFiles]">
+                      <ui:ForEach.Body>
+                        <ActivityAction x:TypeArguments="ugdm:GDriveRemoteItem">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="ugdm:GDriveRemoteItem" Name="currentItem" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Cuerpo" sap:VirtualizedContainerService.HintSize="987,4765" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="945,4677" sap2010:WorkflowViewState.IdRef="IfElseIf_12">
+                              <ui:IfElseIf.ConditionBlocks>
+                                <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                  <ui:IfElseIfBlock BlockType="If" Condition="[currentItem.FullName.Contains(&quot;.pdf&quot;)]">
+                                    <ui:IfElseIfBlock.Then>
+                                      <Sequence DisplayName="Cuerpo" sap:VirtualizedContainerService.HintSize="894,4199" sap2010:WorkflowViewState.IdRef="Sequence_60">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <uisape:ExtractPDFText ApplyOcr="{x:Null}" FilePassword="{x:Null}" OcrEngine="{x:Null}" DisplayName="Extraer texto de PDF" sap:VirtualizedContainerService.HintSize="832,90" sap2010:WorkflowViewState.IdRef="ExtractPDFText_5" PdfFile="[currentItem.LocalCopy]" Text="[TextFile]" />
+                                        <Assign sap:VirtualizedContainerService.HintSize="832,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:String">[in_DataCV]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:String">[TextFile]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'ChatGPT can'" sap:VirtualizedContainerService.HintSize="832,157" sap2010:WorkflowViewState.IdRef="NClick_16" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1dc59c76-f66b-439d-82b4-64bbb47f637e" Version="V3">
+                                          <uix:NClick.Target>
+                                            <uix:TargetAnchorable BrowserURL="https://chat.openai.com/c/2a0c44ac-e554-47f9-bb1f-ec83e10beb79" CvElementArea="431, 649, 771, 56" CvTextArea="449, 670, 142, 17" CvTextArgument="Message ChatGPT..." CvType="InputBox" DesignTimeRectangle="434, 651, 766, 52" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'TEXTAREA prompt-textarea'" FullSelectorArgument="&lt;webctrl id='prompt-textarea' tag='TEXTAREA' /&gt;" FuzzySelectorArgument="&lt;webctrl id='prompt-textarea' tag='TEXTAREA' type='' class='m-0 w-full resize-none border-0 bg-transparent py-[10px] pr-10 focus:ring-0 focus-visible:ring-0 dark:bg-transparent md:py-3.5 md:pr-12 placeholder-black/50 dark:placeholder-white/50 pl-3 md:pl-4' aaname='' /&gt;" Guid="eddd509d-38a3-478c-9ff8-92921a2de28b" ImageBase64="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" InformativeScreenshot="6e5c46d5c589402832398967312c37ae.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ChatGPT' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                                              <uix:TargetAnchorable.Anchors>
+                                                <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                  <uix:Target CvTextArgument="ChatGPT can make mistakes." CvType="Text" DesignTimeRectangle="625, 713, 157, 12" ElementType="Text" FriendlyName="'ChatGPT can'" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                                </scg:List>
+                                              </uix:TargetAnchorable.Anchors>
+                                            </uix:TargetAnchorable>
+                                          </uix:NClick.Target>
+                                        </uix:NClick>
+                                        <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="832,3639" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+                                          <ui:IfElseIf.ConditionBlocks>
+                                            <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                              <ui:IfElseIfBlock BlockType="If" Condition="[Not String.IsNullOrWhiteSpace(TextFile) and Not String.IsNullOrWhiteSpace(in_DataCV)]">
+                                                <ui:IfElseIfBlock.Then>
+                                                  <Sequence DisplayName="Cuerpo" sap:VirtualizedContainerService.HintSize="705,3161" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                                    <Sequence.Variables>
+                                                      <Variable x:TypeArguments="s:String[]" Name="ListData" />
+                                                      <Variable x:TypeArguments="scg:List(x:String)" Name="DataVerification" />
+                                                      <Variable x:TypeArguments="s:String[]" Name="ArrayValues" />
+                                                      <Variable x:TypeArguments="x:Boolean" Name="BoolAux" />
+                                                      <Variable x:TypeArguments="ugdm:GDriveRemoteItem[]" Name="FileCandidatos" />
+                                                    </Sequence.Variables>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <ui:SetToClipboard DisplayName="Set To Clipboard" sap:VirtualizedContainerService.HintSize="643,60" sap2010:WorkflowViewState.IdRef="SetToClipboard_8">
+                                                      <ui:SetToClipboard.Text>
+                                                        <InArgument x:TypeArguments="x:String">
+                                                          <Literal x:TypeArguments="x:String" Value="" />
+                                                        </InArgument>
+                                                      </ui:SetToClipboard.Text>
+                                                    </ui:SetToClipboard>
+                                                    <ui:SetToClipboard DisplayName="Set To Clipboard" sap:VirtualizedContainerService.HintSize="643,60" sap2010:WorkflowViewState.IdRef="SetToClipboard_1" Text="[in_DataCV.ToString]" />
+                                                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayBefore="15" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="643,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" ScopeIdentifier="1dc59c76-f66b-439d-82b4-64bbb47f637e" Shortcuts="[d(hk)][d(ctrl)]v[u(ctrl)][u(hk)]" Version="V3" />
+                                                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayBefore="30" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="643,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" ScopeIdentifier="1dc59c76-f66b-439d-82b4-64bbb47f637e" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Timeout="50" Version="V3" />
+                                                    <ui:SetToClipboard DisplayName="Set To Clipboard" sap:VirtualizedContainerService.HintSize="643,60" sap2010:WorkflowViewState.IdRef="SetToClipboard_5">
+                                                      <ui:SetToClipboard.Text>
+                                                        <InArgument x:TypeArguments="x:String">
+                                                          <Literal x:TypeArguments="x:String" Value="" />
+                                                        </InArgument>
+                                                      </ui:SetToClipboard.Text>
+                                                    </ui:SetToClipboard>
+                                                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="643,52" sap2010:WorkflowViewState.IdRef="CommentOut_14">
+                                                      <ui:CommentOut.Body>
+                                                        <Sequence DisplayName="Actividades ignoradas" sap:VirtualizedContainerService.HintSize="450,163" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                          <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayBefore="50" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="388,52" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_7" ScopeIdentifier="1dc59c76-f66b-439d-82b4-64bbb47f637e" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V3">
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                          </uix:NKeyboardShortcuts>
+                                                        </Sequence>
+                                                      </ui:CommentOut.Body>
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                    </ui:CommentOut>
+                                                    <ui:SetToClipboard DisplayName="Set To Clipboard" sap:VirtualizedContainerService.HintSize="643,60" sap2010:WorkflowViewState.IdRef="SetToClipboard_7" Text="De la ultima informacion que me proporsionaste extraer: Nombre y Apellido; Email; E-mail alternativo; telefono; localidad/provincia; perfil señority; skills; experiencia previa; idiomas.  Cada uno de estos datos debe estar extrictamente separada por el caracter ';' en el caso de que no exista dato debe quedar vacío, dentro de cada valor no se usará el caracter ';' para separar la información (Se debe de cumplir de forma obligatoria que los datos se muestran de esta forma, no me lo muestres en otro formato y tambien NO ME DES DOS OPCIONES PARA ELEGIR solamente da la respuesta)." />
+                                                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="643,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_10" ScopeIdentifier="1dc59c76-f66b-439d-82b4-64bbb47f637e" Shortcuts="[d(hk)][d(ctrl)]v[u(ctrl)][u(hk)]" Version="V3" />
+                                                    <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayBefore="25" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="643,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_11" ScopeIdentifier="1dc59c76-f66b-439d-82b4-64bbb47f637e" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Timeout="50" Version="V3" />
+                                                    <uix:NMouseScroll KeyModifiers="{x:Null}" DelayBefore="15" Direction="Down" DisplayName="Mouse Scroll" sap:VirtualizedContainerService.HintSize="643,137" sap2010:WorkflowViewState.IdRef="NMouseScroll_1" InteractionMode="HardwareEvents" MovementUnits="30" Version="V3" />
+                                                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="20" DisplayName="Click 'SVG'" sap:VirtualizedContainerService.HintSize="643,157" sap2010:WorkflowViewState.IdRef="NClick_12" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1dc59c76-f66b-439d-82b4-64bbb47f637e" Version="V3">
+                                                      <uix:NClick.Target>
+                                                        <uix:TargetAnchorable BrowserURL="https://chat.openai.com/c/723085e4-d773-4e36-98b7-0fbc8a104e0e" CvType="Icon" DesignTimeRectangle="487, 582, 22, 22" DesignTimeScaleFactor="1" ElementType="Icon" FriendlyName="'SVG'" FullSelectorArgument="&lt;webctrl class='icon-md' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button&amp;gt;svg' idx='3' parentid='__next' tag='svg' /&gt;" FuzzySelectorArgument="&lt;webctrl class='icon-md' type='' aaname='' parentid='__next' tag='svg' /&gt;" Guid="25831b50-4a89-4d67-969e-9c362ff19407" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACmSURBVEhL7ZSxCsJQDEX9/2/p3k3o4lJwK27SyT8ojpFTvA+EGyOIgtIDgde0OeEVkl18iD8VL8s1pukc83y5Z2pKMdKu27fo+8Oaq7BiCsfx9CAkRyBWA77JmljxMBzXQq4vCWeCd+Q4k+fZYcUqBMkVyPSvJXeU4meoqWMTNzZx47tipolxrdDYO6yYyaLglcg2nhUDy4UirptFtoAgFb/Lr4kjbrozSKxAZpafAAAAAElFTkSuQmCC" InformativeScreenshot="4317ad2c607ebe1ee12364e0d657d24e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='ChatGPT' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                                                          <uix:TargetAnchorable.Anchors>
+                                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                                              <uix:Target CvElementArea="431, 649, 771, 56" CvTextArea="449, 670, 142, 17" CvTextArgument="Message ChatGPT..." CvType="InputBox" DesignTimeRectangle="431, 649, 772, 56" ElementType="InputBox" FriendlyName="'Message ChatGPT...'" SearchSteps="CV" TargetType="ComputerVisionBased" />
+                                                            </scg:List>
+                                                          </uix:TargetAnchorable.Anchors>
+                                                        </uix:TargetAnchorable>
+                                                      </uix:NClick.Target>
+                                                    </uix:NClick>
+                                                    <ui:GetFromClipboard TimeoutMS="{x:Null}" DisplayName="Get From Clipboard" sap:VirtualizedContainerService.HintSize="643,25" sap2010:WorkflowViewState.IdRef="GetFromClipboard_1">
+                                                      <ui:GetFromClipboard.Result>
+                                                        <OutArgument x:TypeArguments="x:String">[ExtractDataIA]</OutArgument>
+                                                      </ui:GetFromClipboard.Result>
+                                                    </ui:GetFromClipboard>
+                                                    <Assign sap:VirtualizedContainerService.HintSize="643,82" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                                      <Assign.To>
+                                                        <OutArgument x:TypeArguments="s:String[]">[ArrayValues]</OutArgument>
+                                                      </Assign.To>
+                                                      <Assign.Value>
+                                                        <InArgument x:TypeArguments="s:String[]">[ExtractDataIA.Split(";")]</InArgument>
+                                                      </Assign.Value>
+                                                    </Assign>
+                                                    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="643,1121" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_2">
+                                                      <ueab:ExcelProcessScopeX.Body>
+                                                        <ActivityAction x:TypeArguments="ui:IExcelProcess">
+                                                          <ActivityAction.Argument>
+                                                            <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
+                                                          </ActivityAction.Argument>
+                                                          <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="609,1034" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                                                            <Sequence.Variables>
+                                                              <Variable x:TypeArguments="sd1:DataTable" Name="ValuesExcel" />
+                                                              <Variable x:TypeArguments="x:Boolean" Default="False" Name="BoolNombre" />
+                                                              <Variable x:TypeArguments="x:Boolean" Default="False" Name="BoolApellido" />
+                                                              <Variable x:TypeArguments="x:Boolean" Default="False" Name="BoolEmail" />
+                                                            </Sequence.Variables>
+                                                            <sap:WorkflowViewStateService.ViewState>
+                                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              </scg:Dictionary>
+                                                            </sap:WorkflowViewStateService.ViewState>
+                                                            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="547,52" sap2010:WorkflowViewState.IdRef="CommentOut_26">
+                                                              <ui:CommentOut.Body>
+                                                                <Sequence DisplayName="Actividades ignoradas" sap:VirtualizedContainerService.HintSize="450,199" sap2010:WorkflowViewState.IdRef="Sequence_66">
+                                                                  <sap:WorkflowViewStateService.ViewState>
+                                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                    </scg:Dictionary>
+                                                                  </sap:WorkflowViewStateService.ViewState>
+                                                                  <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[ValuesExcel]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="388,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Base VyA" WorkbookPath="[FileCandidatos(0).LocalCopy.LocalPath]" />
+                                                                </Sequence>
+                                                              </ui:CommentOut.Body>
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                            </ui:CommentOut>
+                                                            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[CandidatosDT]" DisplayName="For Each Row in Data Table Buscar NOMBRE" sap:VirtualizedContainerService.HintSize="547,52" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                                                              <ui:ForEachRow.Body>
+                                                                <ActivityAction x:TypeArguments="sd1:DataRow">
+                                                                  <ActivityAction.Argument>
+                                                                    <DelegateInArgument x:TypeArguments="sd1:DataRow" Name="CurrentRow" />
+                                                                  </ActivityAction.Argument>
+                                                                  <Sequence DisplayName="Cuerpo" sap:VirtualizedContainerService.HintSize="589,596" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                                                                    <Sequence.Variables>
+                                                                      <Variable x:TypeArguments="x:String" Name="FullName" />
+                                                                    </Sequence.Variables>
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                    <Assign sap:VirtualizedContainerService.HintSize="547,81" sap2010:WorkflowViewState.IdRef="Assign_18">
+                                                                      <Assign.To>
+                                                                        <OutArgument x:TypeArguments="x:String">[FullName]</OutArgument>
+                                                                      </Assign.To>
+                                                                      <Assign.Value>
+                                                                        <InArgument x:TypeArguments="x:String">[CurrentRow("Nombre").ToString + " " +CurrentRow("Apellido").ToString()]</InArgument>
+                                                                      </Assign.Value>
+                                                                    </Assign>
+                                                                    <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="547,387" sap2010:WorkflowViewState.IdRef="IfElseIf_2">
+                                                                      <ui:IfElseIf.ConditionBlocks>
+                                                                        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                                                          <ui:IfElseIfBlock BlockType="If" Condition="[FullName =ArrayValues(0).ToString]">
+                                                                            <ui:IfElseIfBlock.Then>
+                                                                              <Sequence DisplayName="Cuerpo" sap:VirtualizedContainerService.HintSize="496,192" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                                  </scg:Dictionary>
+                                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                                <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                                                                  <Assign.To>
+                                                                                    <OutArgument x:TypeArguments="x:Boolean">[BoolNombre]</OutArgument>
+                                                                                  </Assign.To>
+                                                                                  <Assign.Value>
+                                                                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                                                  </Assign.Value>
+                                                                                </Assign>
+                                                                              </Sequence>
+                                                                            </ui:IfElseIfBlock.Then>
+                                                                          </ui:IfElseIfBlock>
+                                                                        </sc:BindingList>
+                                                                      </ui:IfElseIf.ConditionBlocks>
+                                                                    </ui:IfElseIf>
+                                                                  </Sequence>
+                                                                </ActivityAction>
+                                                              </ui:ForEachRow.Body>
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                            </ui:ForEachRow>
+                                                            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[CandidatosDT]" DisplayName="For Each Row in Data Table Buscar CORREOELECTRONICO" sap:VirtualizedContainerService.HintSize="547,52" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                                                              <ui:ForEachRow.Body>
+                                                                <ActivityAction x:TypeArguments="sd1:DataRow">
+                                                                  <ActivityAction.Argument>
+                                                                    <DelegateInArgument x:TypeArguments="sd1:DataRow" Name="CurrentRow" />
+                                                                  </ActivityAction.Argument>
+                                                                  <Sequence DisplayName="Cuerpo" sap:VirtualizedContainerService.HintSize="589,477" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                                                    <sap:WorkflowViewStateService.ViewState>
+                                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                      </scg:Dictionary>
+                                                                    </sap:WorkflowViewStateService.ViewState>
+                                                                    <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="547,389" sap2010:WorkflowViewState.IdRef="IfElseIf_4">
+                                                                      <ui:IfElseIf.ConditionBlocks>
+                                                                        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                                                          <ui:IfElseIfBlock BlockType="If" Condition="[CurrentRow(&quot;E-Mail&quot;).ToString =  ArrayValues(1)]">
+                                                                            <ui:IfElseIfBlock.Then>
+                                                                              <Sequence DisplayName="Cuerpo" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                                                                <sap:WorkflowViewStateService.ViewState>
+                                                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                                  </scg:Dictionary>
+                                                                                </sap:WorkflowViewStateService.ViewState>
+                                                                                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_16">
+                                                                                  <Assign.To>
+                                                                                    <OutArgument x:TypeArguments="x:Boolean">[BoolEmail]</OutArgument>
+                                                                                  </Assign.To>
+                                                                                  <Assign.Value>
+                                                                                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                                                  </Assign.Value>
+                                                                                </Assign>
+                                                                              </Sequence>
+                                                                            </ui:IfElseIfBlock.Then>
+                                                                          </ui:IfElseIfBlock>
+                                                                        </sc:BindingList>
+                                                                      </ui:IfElseIf.ConditionBlocks>
+                                                                    </ui:IfElseIf>
+                                                                  </Sequence>
+                                                                </ActivityAction>
+                                                              </ui:ForEachRow.Body>
+                                                              <sap:WorkflowViewStateService.ViewState>
+                                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                                </scg:Dictionary>
+                                                              </sap:WorkflowViewStateService.ViewState>
+                                                            </ui:ForEachRow>
+                                                            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="547,472" sap2010:WorkflowViewState.IdRef="IfElseIf_13">
+                                                              <ui:IfElseIf.ConditionBlocks>
+                                                                <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                                                  <ui:IfElseIfBlock BlockType="If" Condition="[Not BoolNombre and Not BoolEmail]">
+                                                                    <ui:IfElseIfBlock.Then>
+                                                                      <Sequence DisplayName="Cuerpo" sap:VirtualizedContainerService.HintSize="450,276" sap2010:WorkflowViewState.IdRef="Sequence_65">
+                                                                        <sap:WorkflowViewStateService.ViewState>
+                                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                                          </scg:Dictionary>
+                                                                        </sap:WorkflowViewStateService.ViewState>
+                                                                        <ui:InvokeCode ContinueOnError="{x:Null}" Code="DataTable aux = in_CandidatosDT;&#xA;DataRow ultimoDataRow = aux.Rows[aux.Rows.Count - 1];&#xA;int valorID = int.Parse(ultimoDataRow[&quot;ID&quot;].ToString()) + 1;&#xA;aux.Rows.Add(DateTime.Now.ToString(&quot;dd/MM/yyyy&quot;),  valorID.ToString(), in_ArrayValues[0].Split(&quot; &quot;)[0].ToString(), in_ArrayValues[0].Split(&quot; &quot;)[1].ToString(), &quot;&quot;,  in_ArrayValues[1].ToString(), in_ArrayValues[2].ToString(), in_ArrayValues[3].ToString().Replace(&quot;+&quot;, &quot;&quot;), in_ArrayValues[4].ToString(), &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, in_ArrayValues[5].ToString(), &quot;&quot;, in_ArrayValues[6].ToString(), in_ArrayValues[7].ToString(), in_ArrayValues[8].ToString());&#xA;out_DataTableValues = (DataTable3)aux;" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="388,165" sap2010:WorkflowViewState.IdRef="InvokeCode_2" Language="CSharp">
+                                                                          <ui:InvokeCode.Arguments>
+                                                                            <InArgument x:TypeArguments="s:String[]" x:Key="in_ArrayValues">[ArrayValues]</InArgument>
+                                                                            <OutArgument x:TypeArguments="sd:DataTable3" x:Key="out_DataTableValues">[CandidatosDT]</OutArgument>
+                                                                            <InArgument x:TypeArguments="sd1:DataTable" x:Key="in_CandidatosDT">[CandidatosDT]</InArgument>
+                                                                          </ui:InvokeCode.Arguments>
+                                                                        </ui:InvokeCode>
+                                                                      </Sequence>
+                                                                    </ui:IfElseIfBlock.Then>
+                                                                  </ui:IfElseIfBlock>
+                                                                </sc:BindingList>
+                                                              </ui:IfElseIf.ConditionBlocks>
+                                                            </ui:IfElseIf>
+                                                            <uga:MoveDriveFile ContinueOnError="{x:Null}" FileFriendlyName="{x:Null}" FileName="{x:Null}" AuthScopesInvalid="False" DisplayName="Mover archivo" DriveTarget="[GoogleDrive]" FileId="[currentItem.ID]" FileIdSelectionMode="Browse" sap:VirtualizedContainerService.HintSize="547,135" sap2010:WorkflowViewState.IdRef="MoveDriveFile_5" NewParentFriendlyName="Procesado" NewParentId="https://drive.google.com/drive/folders/1mnd21OgcOPBQ2HcWkZr-gPHpBBuuntoV" NewParentIdSelectionMode="Browse" SupportsTeamDrives="False" />
+                                                          </Sequence>
+                                                        </ActivityAction>
+                                                      </ueab:ExcelProcessScopeX.Body>
+                                                      <sap:WorkflowViewStateService.ViewState>
+                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                        </scg:Dictionary>
+                                                      </sap:WorkflowViewStateService.ViewState>
+                                                    </ueab:ExcelProcessScopeX>
+                                                  </Sequence>
+                                                </ui:IfElseIfBlock.Then>
+                                              </ui:IfElseIfBlock>
+                                              <ui:IfElseIfBlock BlockType="Else">
+                                                <ui:IfElseIfBlock.Then>
+                                                  <Sequence DisplayName="Cuerpo" sap:VirtualizedContainerService.HintSize="450,246" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <uga:MoveDriveFile ContinueOnError="{x:Null}" FileFriendlyName="{x:Null}" FileName="{x:Null}" AuthScopesInvalid="False" DisplayName="Mover archivo" DriveTarget="[GoogleDrive]" FileId="[currentItem.ID]" FileIdSelectionMode="Browse" sap:VirtualizedContainerService.HintSize="388,135" sap2010:WorkflowViewState.IdRef="MoveDriveFile_2" NewParentFriendlyName="No Leído" NewParentId="https://drive.google.com/drive/folders/1Kow9qnvLj9mFif7cOFnHn-FlleqrjGTi" NewParentIdSelectionMode="Browse" SupportsTeamDrives="False" />
+                                                  </Sequence>
+                                                </ui:IfElseIfBlock.Then>
+                                              </ui:IfElseIfBlock>
+                                            </sc:BindingList>
+                                          </ui:IfElseIf.ConditionBlocks>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </ui:IfElseIf>
+                                      </Sequence>
+                                    </ui:IfElseIfBlock.Then>
+                                  </ui:IfElseIfBlock>
+                                  <ui:IfElseIfBlock BlockType="Else">
+                                    <ui:IfElseIfBlock.Then>
+                                      <Sequence DisplayName="Cuerpo" sap:VirtualizedContainerService.HintSize="450,246" sap2010:WorkflowViewState.IdRef="Sequence_63">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <uga:MoveDriveFile ContinueOnError="{x:Null}" FileFriendlyName="{x:Null}" FileName="{x:Null}" AuthScopesInvalid="False" DisplayName="Mover archivo" DriveTarget="[GoogleDrive]" FileId="[currentItem.ID]" FileIdSelectionMode="Browse" sap:VirtualizedContainerService.HintSize="388,135" sap2010:WorkflowViewState.IdRef="MoveDriveFile_4" NewParentFriendlyName="Inválidos" NewParentId="https://drive.google.com/drive/folders/1MFDVvSCbLMmGtnZi_zyWdf0IHElAJwLA" NewParentIdSelectionMode="Browse" SupportsTeamDrives="False" />
+                                      </Sequence>
+                                    </ui:IfElseIfBlock.Then>
+                                  </ui:IfElseIfBlock>
+                                </sc:BindingList>
+                              </ui:IfElseIf.ConditionBlocks>
+                            </ui:IfElseIf>
+                          </Sequence>
+                        </ActivityAction>
+                      </ui:ForEach.Body>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:ForEach>
+                    <uga:WriteRangeConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ManualEntrySpreadsheetId="{x:Null}" Spreadsheet="{x:Null}" TemplateBrowserItemFriendlyName="{x:Null}" TemplateBrowserItemId="{x:Null}" AuthScopesInvalid="False" BrowserItemFriendlyName="Candidatos VyA Aux" BrowserItemId="1BfVE5juExo7Ij1og8j-3NI0N4bCLNCNBvheqQCgS_kU" ConnectionId="97b7cb73-b783-48a6-a49f-cd1035c888a9" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="1021,360" sap2010:WorkflowViewState.IdRef="WriteRangeConnections_4" IncludeHeaders="True" ItemSelectionMode="Browse" Range="'Base VyA'" RowPosition="0" Source="[CandidatosDT]" UseConnectionService="True" WorkingWithTemplateSpreadsheet="False" WriteMode="Overwrite">
+                      <uga:WriteRangeConnections.FileIdBackup>
+                        <usau:BackupSlot x:TypeArguments="ugade:EDriveItemMode" StoredValue="Browse">
+                          <usau:BackupSlot.BackupValues>
+                            <scg:Dictionary x:TypeArguments="ugade:EDriveItemMode, scg:List(x:Object)" />
+                          </usau:BackupSlot.BackupValues>
+                        </usau:BackupSlot>
+                      </uga:WriteRangeConnections.FileIdBackup>
+                      <uga:WriteRangeConnections.RangeWriteModeBackup>
+                        <usau:BackupSlot x:TypeArguments="ugase:RangeWriteMode" StoredValue="Overwrite">
+                          <usau:BackupSlot.BackupValues>
+                            <scg:List x:TypeArguments="x:Object" x:Key="Overwrite" Capacity="1">
+                              <x:String></x:String>
+                            </scg:List>
+                            <scg:List x:TypeArguments="x:Object" x:Key="Append" Capacity="1">
+                              <x:String></x:String>
+                            </scg:List>
+                          </usau:BackupSlot.BackupValues>
+                        </usau:BackupSlot>
+                      </uga:WriteRangeConnections.RangeWriteModeBackup>
+                    </uga:WriteRangeConnections>
+                  </Sequence>
+                </ActivityAction>
+              </ugad:GoogleDriveApplicationScope.Body>
+              <ugad:GoogleDriveApplicationScope.CredentialID>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </ugad:GoogleDriveApplicationScope.CredentialID>
+              <ugad:GoogleDriveApplicationScope.CredentialSecret>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </ugad:GoogleDriveApplicationScope.CredentialSecret>
+            </ugad:GoogleDriveApplicationScope>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="10, 30, 1024, 708" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAAdQAAAHUB48IHZQAABK5JREFUWEe9V1lTU0kU5s0/4/hL5o/4MA9ThTDO4lJqzdSU5UKNjpoAggOSsMuiiJqwyi7IEoEAYRFkRxK2bGfOd6Avfe9tUEvxVH2V9Hq+22frzvjx7M82ZBZ7zmT5cm+f83mHGTEGfSVi50q8Q4xb2f78H5z6rD8/1eec4sn3GClt8bdGionchS4bgX3lnqBhwcnA7w0oEkKAO/Hl5sknhEyf944QgM2547OO/VpNCbWND9P6Vowg8WSCwovzVPQ6QFmG+Z9AMrPEe5q/3pNjGHQhr7mBdhNxSqXTNLX8gTomQtQ3HabNnW0hM/x+mi5XF9GftT66UFFo3MOJLJ/nJo4f3m6coHDreSUlkklaiX6k241VtrHzZfk0sbQgJHSZW1uhh62NtrkucHRksC2ixkENOGZ8/V91fls/iE0eKI/yScA8tf2d1DI2RBvbW9LfMzVG2f482zoNmzgB04Agr+U5Dc1FKM0bYVPVf7mqiDon3lGazbHHxOrfdstJ6GvRfh0OCYlXoX7bmA4jgfOl+fRmekIWw+aQwrYXMobfnfiekOqZGqcrT4qtdTcaKmStagOjC7OUSCXpSvXhPB1GAt2To6K0PTxC/q5m+X8vUCdjg3wisG9OY7U1//rTMlY0J/NWY5tUcEAWuPuqVvoretusPh0uArArpDcyLm1sBtEJqM0uVD4S0yAcg+/e0uOOIIdoVOaPL76XE/mlNE/a8A+lQ4eLACbiyC5V/SdtE4GqvnYhsbW3K2OtY8OiCOO/su0bBnuFFMzXwb4CaR499CEdLgKza8s0u7pstU0EsPnix3XyND2j+4F6WthYs9pq3bWax+xHYfEVSFl3izWmw0Vgfn2VIiuLVttEAN6tvhjI9ueKKSAjnJD+ri+1rY9zDoHfmMLRRaB/ZlJiHkeJNjIgpJjTLdq6D+iAs0Y4Q+o+oSKisrdd9ijpDLrWuQgUcPaCIKGgDdawKeId0YHEcxSB0Pys/M/n/AEpbHspbRDZZn9ButbXAC4CADZKplLi1apPt2kXE9HjHeaAWRSBf148EQLq1AAQh5+otoKRABQrGZmfsdn0zssacVLUBeT6XDbR0uaGmO04AtMrS+Jfqq1gJBAIDcgGKiRxGrDpHwdVLoudTs2J7e6wh7dSKXv5UQQQ0tgDdUHpUDASgDIIyioKEOoBBAWnvKdVYhqO1jQ6aJVe3QecBFA3IP9yVlQ6FIwEfJ1NsgDOpPoeBJ/SB453SMhhFihEmDkJwFlVQeo2fD1gJHCRU+xeIiF1Hset+hERuuKrXIj6IvuOuc0FShUs+AUE1RKCOXre0GEkACDdQlDxfit/aBtDjng22CMkkW7xlSp1A8qEA5xTcHL6WieOvZAgx0NgeyipG+iS3+ju/jUMFxUUHH0NrmSICFPMm4ATOPZKhlDDHTCVTolSJTOrS667H65rCE+kXiexo5CBF4tpwAkkHlwqfi8vkMsoBNUQeQJejjQMi+/E4+wDh0XpU8jAc4n/fPFrCBEC5TAHYhzJqJnDEo5pmn8U9h8m/FwyDX4PHD7N+LlkmnDSEAKKBJ5L3Jl0TjpJWAQU8FzCiwWPhs95M3wdvPQ/jkK+9Hd0g/8AAAAASUVORK5CYII=" InformativeScreenshot="c54c22a552a82a72957fe3bc2f4b0b1c.jpg" Selector="&lt;html app='chrome.exe' title='ChatGPT' /&gt;" Title="ChatGPT" Url="https://chat.openai.com/auth/login?iss=https%3A%2F%2Fauth0.openai.com%2F" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
